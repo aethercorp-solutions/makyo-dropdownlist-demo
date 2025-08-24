@@ -1,12 +1,56 @@
-# React + Vite
+Step 1: Create a Vite + React Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+    npm create vite@latest makyo-dropdownlist-demo -- --template react
+    cd makyo-dropdownlist-demo
+    npm install
 
-Currently, two official plugins are available:
+Step 2: Install the Package
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    npm install https://github.com/aethercorp-solutions/makyo-searchable-dropdown-list
 
-## Expanding the ESLint configuration
+Step 3: Update App.jsx (or App.tsx if using TypeScript)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+    import { useState } from 'react'
+    import './App.css'
+    import { MultiSelectDropdown } from 'makyo-searchable-dropdown-list'
+
+    const options = [
+        'Option 1',
+        'Option with icon',
+        'Long Long Option 3',
+        'Long Long Long Option 4',
+        'Long Long Long Long Option 5',
+        'Long Long Long Long Long Option 6'
+    ];
+
+    function App() {
+        const [count, setCount] = useState(0);
+
+        return (
+            <div className="App">
+                <h1>Makyo Searchable Dropdown Demo</h1>
+                <MultiSelectDropdown 
+                    options={options}
+                    multiple={true}
+                    outlined={false}
+                    optionLabel="Label"
+                    filtering={true}
+                    usePortal={false}
+                />
+            </div>
+        );
+    }
+
+ export default App;   
+
+Step 4: Run the App
+
+    npm run dev
+
+Open your browser to http://localhost:5173 (or the URL shown in your terminal).
+
+The deployed url is:
+
+    https://aethercorp-solutions.github.io/makyo-dropdownlist-demo/
+
+
